@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FinPilot Bharat — Frontend (v1 MVP, mocked)
 
-## Getting Started
+Mobile-first Next.js 16 (App Router) + Tailwind v4. Works **standalone against mock fixtures** when the backend is offline, and live when `NEXT_PUBLIC_API_URL` is reachable.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+cp .env.example .env.local   # NEXT_PUBLIC_API_URL=http://localhost:8000
+pnpm dev --port 3000          # http://localhost:3000
+pnpm build                    # quality gate — must pass
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Route | Screen |
+|---|---|
+| `/` | Home dashboard: earnings, UPI/cash/udhaari split, AI actions, runway banner, Sync now |
+| `/udhaari` | Customer ledger, balances, due dates, remind, payment, add customer |
+| `/sale` | Calculator quick-sale: keypad, cash/UPI/udhaari, customer picker, note |
+| `/actions` | AI action center: pending quick-replies, resolutions, WhatsApp outbox |
+| `/transactions` | Feed with status/category/confidence/guardrail badges |
+| `/transactions/[id]` | Explainability: proposal, rationale, evidence, guardrail, audit timeline, approve/reject |
+| `/settings` | Connected sources (mocked), consent toggles, notification prefs, revoke |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API client
 
-## Learn More
+`lib/api.ts` — typed fetch client for the fixed backend contract (`http://localhost:8000`):
+`GET /health`, `POST /api/sync`, `GET /api/transactions`, `GET /api/transactions/{id}`,
+`POST /api/transactions/{id}/approve`, `POST /api/quick-sale`, `GET|POST /api/customers`,
+`POST /api/customers/{id}/payment`, `POST /api/customers/{id}/remind`,
+`GET /api/actions`, `POST /api/actions/{id}/respond`, `GET /api/whatsapp/outbox`,
+`GET /api/digest/daily`, `GET /api/audit?entity_id=`.
 
-To learn more about Next.js, take a look at the following resources:
+Every call has a **4s timeout + inline mock fallback** matching the contract, so the UI is always demoable. No `any`, no `console.log`, strict TS.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## PWA
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `app/manifest.ts` + `public/manifest.webmanifest`, `themeColor #047857`, viewport-fit cover.
+- Offline note on Home + Settings: mock shell renders without network.
 
-## Deploy on Vercel
+## Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `max-w-md` centered shell, bottom nav, min 44–56px tap targets, high-contrast, Hinglish copy, one-thumb primary actions.

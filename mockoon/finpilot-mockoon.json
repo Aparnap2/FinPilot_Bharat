@@ -1,0 +1,209 @@
+{
+  "uuid": "finpilot-bharat-mock-env-0001",
+  "lastMigration": 33,
+  "name": "FinPilot Bharat v1 Mocks",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "127.0.0.1",
+  "folders": [],
+  "defaultResponseHeaders": [
+    { "key": "Content-Type", "value": "application/json" }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": { "enabled": false, "type": "CERT", "pfxPath": "", "certPath": "", "keyPath": "", "caPath": "", "passphrase": "" },
+  "cors": true,
+  "headers": [
+    { "key": "Content-Type", "value": "application/json" }
+  ],
+  "proxyReqHeaders": [],
+  "proxyResHeaders": [],
+  "data": [],
+  "templates": {},
+  "routes": [
+    {
+      "uuid": "route-bank-transactions",
+      "documentation": "Mock bank / open-banking transactions. Mirrors mockoon/seed/bank_transactions.json.",
+      "method": "get",
+      "endpoint": "mock/bank/transactions",
+      "responses": [
+        {
+          "uuid": "resp-bank-transactions",
+          "body": "[{\"id\": \"txn-clean-001\", \"descriptor\": \"UPI/CR/100001/AMAZON PAY/OKHDFC\", \"amount\": \"2499.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-28T10:30:00+00:00\", \"merchant\": \"Amazon\", \"vpa\": \"OKHDFC\"}, {\"id\": \"txn-udhaari-500\", \"descriptor\": \"UPI/CR/984372/RAHUL K/OKAXIS\", \"amount\": \"500.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-29T09:15:00+00:00\", \"merchant\": \"RAHUL K\", \"vpa\": \"OKAXIS\"}, {\"id\": \"txn-swiggy-899\", \"descriptor\": \"UPI/DR/100003/SWIGGY/OKICICI\", \"amount\": \"899.00\", \"currency\": \"INR\", \"direction\": \"debit\", \"type\": \"DR\", \"date\": \"2026-09-29T13:00:00+00:00\", \"merchant\": \"Swiggy\", \"vpa\": \"OKICICI\"}, {\"id\": \"txn-high-125k\", \"descriptor\": \"NEFT/CR/100004/ABC CORP/HDFC0001\", \"amount\": \"125000.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-27T11:00:00+00:00\", \"merchant\": \"ABC CORP\"}, {\"id\": \"txn-zomato-649a\", \"descriptor\": \"UPI/DR/100005/ZOMATO/OKSBI\", \"amount\": \"649.00\", \"currency\": \"INR\", \"direction\": \"debit\", \"type\": \"DR\", \"date\": \"2026-09-29T19:00:00+00:00\", \"merchant\": \"Zomato\", \"vpa\": \"OKSBI\"}, {\"id\": \"txn-zomato-649b\", \"descriptor\": \"UPI/DR/100005/ZOMATO/OKSBI\", \"amount\": \"649.00\", \"currency\": \"INR\", \"direction\": \"debit\", \"type\": \"DR\", \"date\": \"2026-09-29T19:00:00+00:00\", \"merchant\": \"Zomato\", \"vpa\": \"OKSBI\"}, {\"id\": \"txn-refund-649\", \"descriptor\": \"REFUND/ZOMATO/100006\", \"amount\": \"649.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-29T20:00:00+00:00\", \"merchant\": \"Zomato\"}, {\"id\": \"txn-gst-5000\", \"descriptor\": \"UPI/DR/100007/GST PAYMENT/OKSBI\", \"amount\": \"5000.00\", \"currency\": \"INR\", \"direction\": \"debit\", \"type\": \"DR\", \"date\": \"2026-09-28T15:00:00+00:00\", \"merchant\": \"GST PAYMENT\"}, {\"id\": \"txn-ambig-1200\", \"descriptor\": \"UPI/CR/100008/UNKNOWN/OKPAY\", \"amount\": \"1200.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-29T08:00:00+00:00\", \"merchant\": \"\"}, {\"id\": \"txn-cash-sale\", \"descriptor\": \"CASH SALE - counter\", \"amount\": \"1800.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-29T18:00:00+00:00\", \"merchant\": \"Counter Sale\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "bank transactions",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-gateway-settlements",
+      "documentation": "Mock payment-gateway settlements. Mirrors mockoon/seed/gateway_settlements.json.",
+      "method": "get",
+      "endpoint": "mock/gateway/settlements",
+      "responses": [
+        {
+          "uuid": "resp-gateway-settlements",
+          "body": "[{\"id\": \"gw-settle-001\", \"descriptor\": \"GATEWAY SETTLEMENT RAZORPAY\", \"amount\": \"7450.00\", \"currency\": \"INR\", \"direction\": \"credit\", \"type\": \"CR\", \"date\": \"2026-09-29T06:00:00+00:00\", \"merchant\": \"Razorpay Settlement\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "gateway settlements",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-inbox-receipts",
+      "documentation": "Mock connected-inbox receipts (bounded mailbox scan). Mirrors mockoon/seed/inbox_receipts.json.",
+      "method": "get",
+      "endpoint": "mock/inbox/receipts",
+      "responses": [
+        {
+          "uuid": "resp-inbox-receipts",
+          "body": "[{\"id\": \"rcpt-amazon-2499\", \"merchant\": \"Amazon\", \"amount\": \"2499.00\", \"date\": \"2026-09-28T10:35:00+00:00\", \"kind\": \"receipt\", \"subject\": \"Amazon order receipt Rs.2499\", \"summary\": \"Amazon receipt dated 2026-09-28 for Rs.2499\"}, {\"id\": \"rcpt-gw-7450\", \"merchant\": \"Razorpay\", \"amount\": \"7450.00\", \"date\": \"2026-09-29T06:05:00+00:00\", \"kind\": \"gateway_settlement\", \"subject\": \"Razorpay settlement Rs.7450\", \"summary\": \"Razorpay settlement dated 2026-09-29 for Rs.7450\"}, {\"id\": \"rcpt-zomato-649\", \"merchant\": \"Zomato\", \"amount\": \"649.00\", \"date\": \"2026-09-29T19:05:00+00:00\", \"kind\": \"receipt\", \"subject\": \"Zomato refund Rs.649\", \"summary\": \"Zomato refund dated 2026-09-29 for Rs.649\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "inbox receipts",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-ledger-chart",
+      "documentation": "Mock credit-ledger chart of accounts. Mirrors mockoon/seed/chart_of_accounts.json.",
+      "method": "get",
+      "endpoint": "mock/ledger/chart",
+      "responses": [
+        {
+          "uuid": "resp-ledger-chart",
+          "body": "[{\"code\": \"sales\", \"name\": \"sales\"}, {\"code\": \"food-delivery\", \"name\": \"food-delivery\"}, {\"code\": \"shopping\", \"name\": \"shopping\"}, {\"code\": \"gateway-settlement\", \"name\": \"gateway-settlement\"}, {\"code\": \"refunds\", \"name\": \"refunds\"}, {\"code\": \"tax\", \"name\": \"tax\"}, {\"code\": \"udhaari-receipt\", \"name\": \"udhaari-receipt\"}, {\"code\": \"udhaari-sale\", \"name\": \"udhaari-sale\"}, {\"code\": \"uncategorized\", \"name\": \"uncategorized\"}, {\"code\": \"cash-sale\", \"name\": \"cash-sale\"}, {\"code\": \"transfer\", \"name\": \"transfer\"}, {\"code\": \"other\", \"name\": \"other\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "chart of accounts",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-ledger-customers-get",
+      "documentation": "Mock credit-ledger customers (list). Mirrors mockoon/seed/customers.json.",
+      "method": "get",
+      "endpoint": "mock/ledger/customers",
+      "responses": [
+        {
+          "uuid": "resp-ledger-customers-get",
+          "body": "[{\"id\": \"cust-rahul\", \"name\": \"Rahul Kumar\", \"phone\": \"9843720001\", \"vpa\": \"rahul@okaxis\", \"balance_owed\": \"1200.00\"}, {\"id\": \"cust-priya\", \"name\": \"Priya Sharma\", \"phone\": \"9811111111\", \"vpa\": \"priya@okhdfc\", \"balance_owed\": \"0.00\"}, {\"id\": \"cust-abc\", \"name\": \"ABC Corp\", \"phone\": \"\", \"vpa\": \"\", \"balance_owed\": \"3500.00\"}]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "customers list",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-ledger-customers-post",
+      "documentation": "Mock credit-ledger customer creation (echoes a created customer shape).",
+      "method": "post",
+      "endpoint": "mock/ledger/customers",
+      "responses": [
+        {
+          "uuid": "resp-ledger-customers-post",
+          "body": "{\"id\": \"cust-mock-001\", \"name\": \"Mock Customer\", \"phone\": \"\", \"vpa\": \"\", \"balance_owed\": \"0.00\"}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "customer created",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "route-whatsapp-send",
+      "documentation": "Mock WhatsApp send endpoint (no real messages leave the box).",
+      "method": "post",
+      "endpoint": "mock/whatsapp/send",
+      "responses": [
+        {
+          "uuid": "resp-whatsapp-send",
+          "body": "{\"message_id\": \"wa-mock-001\", \"status\": \"sent\"}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "message sent",
+          "headers": [{ "key": "Content-Type", "value": "application/json" }],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true
+        }
+      ],
+      "responseMode": null
+    }
+  ]
+}
