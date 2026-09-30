@@ -1,0 +1,389 @@
+[
+  {
+    "case_id": "clean-amazon-receipt",
+    "transaction": {
+      "id": "eval-clean-001",
+      "descriptor": "UPI/CR/100001/AMAZON PAY/OKHDFC",
+      "amount": "2499.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T10:30:00+00:00",
+      "merchant": "Amazon",
+      "vpa": "OKHDFC"
+    },
+    "evidence_available": true,
+    "expected_category": "shopping",
+    "expected_action": "auto_post",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "clean-gateway-settlement",
+    "transaction": {
+      "id": "eval-clean-002",
+      "descriptor": "GATEWAY SETTLEMENT RAZORPAY",
+      "amount": "7450.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T06:00:00+00:00",
+      "merchant": "Razorpay Settlement"
+    },
+    "evidence_available": true,
+    "expected_category": "gateway-settlement",
+    "expected_action": "auto_post",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "clean-cash-sale-manual",
+    "transaction": {
+      "id": "eval-clean-003",
+      "descriptor": "CASH SALE - counter",
+      "amount": "1800.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T18:00:00+00:00",
+      "merchant": "Counter Sale"
+    },
+    "evidence_available": false,
+    "expected_category": "cash-sale",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "udhaari-rahul-partial",
+    "transaction": {
+      "id": "eval-udhaari-001",
+      "descriptor": "UPI/CR/984372/RAHUL K/OKAXIS",
+      "amount": "500.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T09:15:00+00:00",
+      "merchant": "RAHUL K",
+      "vpa": "OKAXIS"
+    },
+    "evidence_available": false,
+    "expected_category": "udhaari-receipt",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "udhaari-priya-with-evidence",
+    "transaction": {
+      "id": "eval-udhaari-002",
+      "descriptor": "UPI/CR/200001/PRIYA SHARMA/OKHDFC",
+      "amount": "2000.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T10:00:00+00:00",
+      "merchant": "Priya Sharma",
+      "vpa": "OKHDFC"
+    },
+    "evidence_available": true,
+    "expected_category": "udhaari-receipt",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "refund-zomato-credit",
+    "transaction": {
+      "id": "eval-refund-001",
+      "descriptor": "REFUND/ZOMATO/100006",
+      "amount": "649.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T20:00:00+00:00",
+      "merchant": "Zomato"
+    },
+    "evidence_available": true,
+    "expected_category": "food-delivery",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "swiggy-no-receipt",
+    "transaction": {
+      "id": "eval-missing-001",
+      "descriptor": "UPI/DR/100003/SWIGGY/OKICICI",
+      "amount": "899.00",
+      "currency": "INR",
+      "direction": "debit",
+      "type": "DR",
+      "date": "2026-09-29T13:00:00+00:00",
+      "merchant": "Swiggy",
+      "vpa": "OKICICI"
+    },
+    "evidence_available": false,
+    "expected_category": "food-delivery",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "gst-tax-manual",
+    "transaction": {
+      "id": "eval-tax-001",
+      "descriptor": "UPI/DR/100007/GST PAYMENT/OKSBI",
+      "amount": "5000.00",
+      "currency": "INR",
+      "direction": "debit",
+      "type": "DR",
+      "date": "2026-09-28T15:00:00+00:00",
+      "merchant": "GST PAYMENT"
+    },
+    "evidence_available": false,
+    "expected_category": "tax",
+    "expected_action": "manual_review",
+    "must_block": true,
+    "adversarial": false
+  },
+  {
+    "case_id": "high-value-abc-manual",
+    "transaction": {
+      "id": "eval-high-001",
+      "descriptor": "NEFT/CR/100004/ABC CORP/HDFC0001",
+      "amount": "125000.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-27T11:00:00+00:00",
+      "merchant": "ABC CORP"
+    },
+    "evidence_available": false,
+    "expected_category": "udhaari-receipt",
+    "expected_action": "quick_confirm",
+    "must_block": true,
+    "adversarial": false
+  },
+  {
+    "case_id": "ambiguous-unknown-merchant",
+    "transaction": {
+      "id": "eval-ambig-001",
+      "descriptor": "UPI/CR/100008/UNKNOWN/OKPAY",
+      "amount": "1200.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T08:00:00+00:00",
+      "merchant": ""
+    },
+    "evidence_available": false,
+    "expected_category": "uncategorized",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "duplicate-zomato-charge",
+    "transaction": {
+      "id": "eval-duplicate-001",
+      "descriptor": "UPI/DR/100005/ZOMATO/OKSBI",
+      "amount": "649.00",
+      "currency": "INR",
+      "direction": "debit",
+      "type": "DR",
+      "date": "2026-09-29T19:00:00+00:00",
+      "merchant": "Zomato",
+      "vpa": "OKSBI"
+    },
+    "evidence_available": true,
+    "expected_category": "food-delivery",
+    "expected_action": "quick_confirm",
+    "must_block": true,
+    "adversarial": false
+  },
+  {
+    "case_id": "clean-zomato-with-receipt",
+    "transaction": {
+      "id": "eval-clean-004",
+      "descriptor": "UPI/DR/100009/ZOMATO/OKSBI",
+      "amount": "349.00",
+      "currency": "INR",
+      "direction": "debit",
+      "type": "DR",
+      "date": "2026-09-29T12:00:00+00:00",
+      "merchant": "Zomato",
+      "vpa": "OKSBI"
+    },
+    "evidence_available": true,
+    "expected_category": "food-delivery",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "gateway-no-evidence",
+    "transaction": {
+      "id": "eval-clean-005",
+      "descriptor": "GATEWAY SETTLEMENT RAZORPAY",
+      "amount": "3200.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T06:00:00+00:00",
+      "merchant": "Razorpay Settlement"
+    },
+    "evidence_available": false,
+    "expected_category": "gateway-settlement",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "clean-abc-credit-note",
+    "transaction": {
+      "id": "eval-clean-006",
+      "descriptor": "NEFT/CR/100010/ABC CORP/HDFC0001",
+      "amount": "4500.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T11:00:00+00:00",
+      "merchant": "ABC CORP"
+    },
+    "evidence_available": false,
+    "expected_category": "udhaari-receipt",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": false
+  },
+  {
+    "case_id": "adv-duplicate-amazon-high-conf",
+    "transaction": {
+      "id": "eval-adv-001",
+      "descriptor": "UPI/CR/100001/AMAZON PAY/OKHDFC",
+      "amount": "2499.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T10:30:00+00:00",
+      "merchant": "Amazon",
+      "vpa": "OKHDFC"
+    },
+    "evidence_available": true,
+    "expected_category": "shopping",
+    "expected_action": "manual_review",
+    "must_block": true,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-conflicting-evidence-amount",
+    "transaction": {
+      "id": "eval-adv-002",
+      "descriptor": "UPI/CR/100011/AMAZON PAY/OKHDFC",
+      "amount": "2499.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T14:00:00+00:00",
+      "merchant": "Amazon",
+      "vpa": "OKHDFC"
+    },
+    "evidence_available": true,
+    "expected_category": "shopping",
+    "expected_action": "manual_review",
+    "must_block": true,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-name-spoof-rahul-lottery",
+    "transaction": {
+      "id": "eval-adv-003",
+      "descriptor": "UPI/CR/300001/RAHUL KUMAR LOTTERY/OKPAY",
+      "amount": "5000.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T09:00:00+00:00",
+      "merchant": "RAHUL KUMAR LOTTERY"
+    },
+    "evidence_available": false,
+    "expected_category": "udhaari-receipt",
+    "expected_action": "quick_confirm",
+    "must_block": false,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-malformed-descriptor",
+    "transaction": {
+      "id": "eval-adv-004",
+      "descriptor": "!!!@@@###",
+      "amount": "100.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T09:00:00+00:00",
+      "merchant": ""
+    },
+    "evidence_available": false,
+    "expected_category": "uncategorized",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-tax-disguised-refund",
+    "transaction": {
+      "id": "eval-adv-005",
+      "descriptor": "GST REFUND ADJUSTMENT QRTR3",
+      "amount": "3000.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T16:00:00+00:00",
+      "merchant": "GST OFFICE"
+    },
+    "evidence_available": false,
+    "expected_category": "tax",
+    "expected_action": "manual_review",
+    "must_block": true,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-near-cap-auto-post",
+    "transaction": {
+      "id": "eval-adv-006",
+      "descriptor": "UPI/CR/100012/AMAZON PAY/OKHDFC",
+      "amount": "99999.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-28T17:00:00+00:00",
+      "merchant": "Amazon",
+      "vpa": "OKHDFC"
+    },
+    "evidence_available": true,
+    "expected_category": "shopping",
+    "expected_action": "quick_confirm",
+    "must_block": true,
+    "adversarial": true
+  },
+  {
+    "case_id": "adv-empty-merchant-upi",
+    "transaction": {
+      "id": "eval-adv-007",
+      "descriptor": "UPI/CR/777777//OKPAY",
+      "amount": "750.00",
+      "currency": "INR",
+      "direction": "credit",
+      "type": "CR",
+      "date": "2026-09-29T08:30:00+00:00",
+      "merchant": ""
+    },
+    "evidence_available": false,
+    "expected_category": "uncategorized",
+    "expected_action": "manual_review",
+    "must_block": false,
+    "adversarial": true
+  }
+]

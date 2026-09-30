@@ -1,0 +1,5 @@
+[
+  {"id": "rcpt-amazon-2499", "merchant": "Amazon", "amount": "2499.00", "date": "2026-09-28T10:35:00+00:00", "kind": "receipt", "subject": "Amazon order receipt Rs.2499", "summary": "Amazon receipt dated 2026-09-28 for Rs.2499"},
+  {"id": "rcpt-gw-7450", "merchant": "Razorpay", "amount": "7450.00", "date": "2026-09-29T06:05:00+00:00", "kind": "gateway_settlement", "subject": "Razorpay settlement Rs.7450", "summary": "Razorpay settlement dated 2026-09-29 for Rs.7450"},
+  {"id": "rcpt-zomato-649", "merchant": "Zomato", "amount": "649.00", "date": "2026-09-29T19:05:00+00:00", "kind": "receipt", "subject": "Zomato refund Rs.649", "summary": "Zomato refund dated 2026-09-29 for Rs.649"}
+]
